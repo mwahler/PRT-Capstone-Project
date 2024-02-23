@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'com.bmuschko.docker-spring-boot-application' version '9.4.0'
+
+}
+
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+import javax.swing.plaf.basic.BasicToolBarUI
+
+group = "com.mwahler"
+version = "0.0.1-SNAPSHOT"
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.3.0'
+    implementation 'org.mongodb:mongodb-driver-sync:4.11.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task createDockerFile(type: Dockerfile) {
+    from 'eclipse-temurin:17-jdk-jammy'
+    copyFile 'PRTServer-0.0.1-SNAPSHOT.jar', '/app/PRTServer-0.0.1-SNAPSHOT.jar'
+    entryPoint 'java'
+    defaultCommand '-jar', '/app/PRTServer-0.0.1-SNAPSHOT.jar'
+    exposePort 8080
+}
+
+task syncJar(type: Copy) {
+    dependsOn assemble
+    from jar.destinationDirectory
+    into layout.buildDirectory.dir("docker")
+}
+
+task buildImage(type: DockerBuildImage) {
+    dependsOn createDockerFile, syncJar
+    inputDir = createDockerFile.getDestDir()
+    images = ["com.mwahler/prtserver:0.0.1"]
+}
