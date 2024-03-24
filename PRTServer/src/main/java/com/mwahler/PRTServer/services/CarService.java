@@ -16,7 +16,7 @@ public interface CarService {
 
     CarDTO findOne(String id);
 
-    CarDTO findOneByMac(String id);
+    CarDTO findOneBySerial(String id);
 
     long count();
 

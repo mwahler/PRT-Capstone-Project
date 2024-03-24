@@ -33,7 +33,7 @@ data:
         createdAt: new Date()
       })
       cars.insert({
-        macAddress: '00-00-00-00-00-00'
+        serialNumber: '0000000000000000'
       })
       data_points.insert({
         temperature: 0,

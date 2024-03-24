@@ -52,9 +52,9 @@ public class CarController {
         return carService.findAll(listIds);
     }
 
-    @GetMapping("car/mac/{macAddress}")
-    public ResponseEntity<CarDTO> getCarByMac(@PathVariable String macAddress) {
-        CarDTO CarDTO = carService.findOneByMac(macAddress);
+    @GetMapping("car/serial/{serialNumber}")
+    public ResponseEntity<CarDTO> getCarBySerial(@PathVariable String serialNumber) {
+        CarDTO CarDTO = carService.findOneBySerial(serialNumber);
         if (CarDTO == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(CarDTO);
     }

@@ -51,8 +51,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public CarDTO findOneByMac(String macAddress) {
-        CarEntity entity = carRepository.findOneByMac(macAddress);
+    public CarDTO findOneBySerial(String serialNumber) {
+        CarEntity entity = carRepository.findOneBySerial(serialNumber);
         if(entity == null) {
             return null;
         }

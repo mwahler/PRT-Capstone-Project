@@ -19,7 +19,7 @@ public interface CarRepository {
 
     CarEntity findOne(String id);
 
-    CarEntity findOneByMac(String macAddress);
+    CarEntity findOneBySerial(String serialNumber);
 
     long count();
 

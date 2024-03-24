@@ -59,7 +59,7 @@ public class UserEntity {
     }
 
     public String getUsername() {
-        return lastName;
+        return username;
     }
 
     public UserEntity setUsername(String username) {

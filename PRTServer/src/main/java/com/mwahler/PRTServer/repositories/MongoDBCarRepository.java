@@ -78,8 +78,8 @@ public class MongoDBCarRepository implements CarRepository {
     }
 
     @Override
-    public CarEntity findOneByMac(String macAddress) {
-        return carCollection.find(eq("macAddress", macAddress)).first();
+    public CarEntity findOneBySerial(String serialNumber) {
+        return carCollection.find(eq("serialNumber", serialNumber)).first();
     }
 
     @Override
