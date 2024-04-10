@@ -28,8 +28,8 @@ data:
       users.insert({
         firstName: 'Marissa',
         lastName: 'Wahler',
-        username: 'mncox',
-        password: 'badpass123',
+        username: 'marissa-user',
+        password: 'password123',
         createdAt: new Date()
       })
       cars.insert({
