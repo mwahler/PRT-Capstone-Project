@@ -122,6 +122,6 @@ public class PRTClientApplication {
         double lat = 39.5523 + rand.nextDouble() * 0.1545;
         double lon = -80.0558 + rand.nextDouble() * 0.1998;
         LocationDTO randomLocation = new LocationDTO(lat, lon);
-        return new DataPointDTO(timeStamp, carId, randomTemp, randomCurrent, randomLocation);
+        return new DataPointDTO(timeStamp, carId, randomCurrent, randomTemp, randomLocation);
     }
 }
