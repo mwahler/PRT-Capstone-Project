@@ -16,13 +16,13 @@ public record DataPointDTO (
 
     public DataPointDTO(DataPointEntity p) {
         this(p.getId() == null ? new ObjectId().toHexString() : p.getId().toHexString(), p.getTimestamp(),
-                p.getCarId().toHexString(), p.getCurrent(), p.getTemperature(), p.getLocation());
+                p.getCarId().toHexString(), p.getTemperature(), p.getCurrent(), p.getLocation());
     }
 
     public DataPointEntity toDataPointEntity() {
         ObjectId _id = id == null ? new ObjectId() : new ObjectId(id);
         ObjectId _carId = new ObjectId(carId);
-        return new DataPointEntity(_id, timestamp, _carId, current, temperature, location);
+        return new DataPointEntity(_id, timestamp, _carId, temperature, current, location);
     }
 
 }
