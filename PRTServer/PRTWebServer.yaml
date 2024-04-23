@@ -26,10 +26,10 @@ data:
       data_points = db.getCollection("dataPoints")
     
       users.insert({
-        firstName: 'Marissa',
-        lastName: 'Wahler',
-        username: 'marissa-user',
-        password: 'password123',
+        firstName: 'Test',
+        lastName: 'User',
+        username: 'admin',
+        password: 'password',
         createdAt: new Date()
       })
       cars.insert({
