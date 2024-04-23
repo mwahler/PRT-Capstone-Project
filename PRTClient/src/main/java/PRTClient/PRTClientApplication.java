@@ -33,8 +33,8 @@ public class PRTClientApplication {
                 System.out.println("API URL: " + apiURL);
             }
             String carId = getCarId(httpClient);
-            for (int i = 0; i < 10; i++) {
-                //Fake the data points
+            for (int i = 0; i < 1000; i++) {
+                //Generate the data points
                 DataPointDTO randomDataPointDTO = generateRandomDataPointDTO(carId);
                 sendData(httpClient, randomDataPointDTO);
                 //Wait between 1 and 10 seconds
